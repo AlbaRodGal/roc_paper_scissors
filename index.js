@@ -1,34 +1,35 @@
-console.log("Welcome to Rock, Paper, Scissors!");
+console.log('Welcome to Rock, Paper, Scissors!');
 
-const choices = ['rock', 'paper', 'scissors']
+//Obtain a choice from the user
 
-// Obtain a choice from the user
-
-const readline = require("readline").createInterface({
+const readline = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
-function handleUserResponse (response) {
+function handleUserReponse (response){
+    //Validate the user's choice and tell them if they if they made a mistake
+    const choices = ['rock', 'paper', 'scissors'];
 
-    // Strip/Ignore capitalisation 
     response = response.toLowerCase();
     
-    // Validate user's choice and tell them if they made a mistake
-
-    if (response != 'rock', 'paper', 'scissors') {
-    console.log("Sorry, that's invalid. Please choose either rock, paper or scissors!");
+    if (response in choices) {
+        return true;
+    } else{
+        return false;
+    }
 }
 
-// Make a random selection from the computer
+    //Strip capitalisation/ignore capitalisation of words
 
-randomChoice = choices.random()
-console.log(randomChoice)
-    // A random choice of Rock, Paper, Scissors
-// Compare the two choices
+    //Make a random selection for the computer
+    //A random choice of Rock, Paper or Scissors
 
-//Report on who won
-    console.log(response);
-    readline.close();
-}
-readline.question("Please choose either rock, paper or scissors!\n", handleUserResponse)
+    //Compare the two choices
+
+    //Report on who won
+//     console.log(response);
+//     readline.close();
+// }
+
+readline.question("Please choose either rock, paper or scissors!\n", handleUserReponse);
