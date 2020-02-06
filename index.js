@@ -7,7 +7,7 @@ const readline = require('readline').createInterface({
     output: process.stdout
 });
 
-function handleUserReponse (response){
+function isInputValid (response){
     //Validate the user's choice and tell them if they if they made a mistake
     const choices = ['rock', 'paper', 'scissors'];
 
