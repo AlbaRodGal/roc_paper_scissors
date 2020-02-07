@@ -15,9 +15,10 @@ function handleUserResponse (response) {
     const choices = ['rock', 'paper', 'scissors'];
     response = response.toLowerCase();
     if (!response.match(/rock|paper|scissors/g)){
-        console.log('Error! Please choose whether rock, paper or scissors')
-    }
-    //A random choice of Rock, Paper or Scissors
+        console.log('Error! Please choose whether rock, paper or scissors');
+        readline.question("Please choose either rock, paper or scissors!\n", handleUserResponse);    
+    } else {
+        //A random choice of Rock, Paper or Scissors
     let computerChoice = Math.floor(Math.random()*choices.length);
     console.log('Computer: ' + choices[computerChoice])
 
@@ -40,5 +41,7 @@ function handleUserResponse (response) {
  
     //Report on who won
     readline.close();
+    }
 }
+    
 readline.question("Please choose either rock, paper or scissors!\n", handleUserResponse)
