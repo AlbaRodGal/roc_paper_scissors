@@ -9,19 +9,36 @@ const readline = require('readline').createInterface({
 
 function handleUserResponse (response) {
 //Strip capitalisation/ignore capitalisation of words
-    
+
+//Validate the user's choice and tell them if they if they made a mistake
+ 
     const choices = ['rock', 'paper', 'scissors'];
     response = response.toLowerCase();
-    response.match(/rock|paper|scissors/g))
+    if (!response.match(/rock|paper|scissors/g)){
+        console.log('Error! Please choose whether rock, paper or scissors')
+    }
     //A random choice of Rock, Paper or Scissors
-    let rightAnswer = Math.floor(Math.random()*choices.length);
-    console.log(rightAnswer);
-    //Validate the user's choice and tell them if they if they made a mistake
+    let computerChoice = Math.floor(Math.random()*choices.length);
+    console.log('Computer: ' + choices[computerChoice])
 
     //Compare the two choices
+    if (computerChoice === 0 && response === 'scissors'||
+        computerChoice === 2 && response === 'paper'||
+        computerChoice === 1 && response === 'rock'){
+            console.log('Computer wins')
+        } 
+    if (computerChoice === 0 && response === 'paper'||
+        computerChoice === 2 && response === 'rock' ||
+        computerChoice === 1 && response === 'scissors'){
+            console.log('User wins!')
+        }
+    if (computerChoice === 0 && response === 'rock'||
+        computerChoice === 1 && response === 'paper' ||
+        computerChoice === 2 && response === 'scissors'){
+        console.log('This is a draw')
+    }
  
     //Report on who won
-    console.log(response);
     readline.close();
 }
 readline.question("Please choose either rock, paper or scissors!\n", handleUserResponse)
