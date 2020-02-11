@@ -28,14 +28,12 @@ function handleUserResponse (response) {
         computerChoice === 1 && response === 'rock'){
             console.log('Computer wins')
         } 
-    if (computerChoice === 0 && response === 'paper'||
+    else if (computerChoice === 0 && response === 'paper'||
         computerChoice === 2 && response === 'rock' ||
         computerChoice === 1 && response === 'scissors'){
             console.log('User wins!')
         }
-    if (computerChoice === 0 && response === 'rock'||
-        computerChoice === 1 && response === 'paper' ||
-        computerChoice === 2 && response === 'scissors'){
+    else{
         console.log('This is a draw')
     }
  
